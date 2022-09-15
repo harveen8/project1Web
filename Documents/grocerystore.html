@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grocery Store</title>
+    <link rel="short icon" href="https://cdn-icons-png.flaticon.com/512/4437/4437625.png"/>
+    <link rel="stylesheet" type="text/css" href="gc.css"/>
+</head>
+<body>
+
+<div class="header">The Grocery Store</div> 
+
+
+    <button id="produce"  class="isles"> Produce</button>
+    <button id="bakery" class="isles"> Bakery</button>
+    <button id="meat" class="isles"> Meat</button>
+    <button id="dairy" class="isles"> Dairy</button>
+    <button id="convenience" class="isles"> Convenience</button>
+    <button id="checkout" class="isles"> <a  href="receipt.html"> Check Out</a></button>
+
+
+<div id="bodyContainer">
+    <div class="formFlex">
+        <div id="labels">
+            <div id="labelName" class="label">Item Name</div>
+            <div id="labelIsle" class="label"> Isle</div>
+            <div id="labelPrice" class="label">Price</div>
+            <div id="labelQuantity" class="label">Quantity</div>
+        </div>
+    <div id="formWithSumbit">
+        <form id="formItems">
+            <select id="names" value="Name" placeholder="Item Name" required></select>
+            <select id="isle" value="Isle"></select>
+            <i>$</i>
+            <select id="price" type="number" value="0.00"> </select>
+            <input id="quantity"  type="number" min="0" max="0" required></select> 
+        </form>
+        <button id="adder"  value="Submit" >Add Item</button>
+ 
+    </div>
+
+  
+</div>
+
+<div id="cartBox"> 
+
+    <div id="cart Labels">Here Are The Items In Your Cart</div>
+    <div id="cart">
+        <div class="cartLabel">Item Name</div>
+        <div  id="cartName"></div>
+        <div class="cartLabel"> Isle</div>
+        <div  id="cartIsle"> </div>
+        <div class="cartLabel">Price</div>
+        <div  id="cartPrice"> </div>
+        <div class="cartLabel">Quantity</div>
+        <div  id="cartQuantity"></div>
+    </div>
+</div>
+  <script src="grocerystore.js"></script> 
+</body>
+</html>

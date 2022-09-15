@@ -1,0 +1,125 @@
+*{
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+     /* background-image: url('https://media.istockphoto.com/vectors/green-food-seamless-pattern-of-vegetable-fruits-vector-id1178383543?k=20&m=1178383543&s=170667a&w=0&h=Aqv6r9RyD23MUx0ANTrmnC8Z-ND5ekKAV0MgmBVYtBg=');  */
+     /* background-image: url("https://media.istockphoto.com/vectors/fruits-and-vegetables-seamless-pattern-vector-id1145430255?k=20&m=1145430255&s=612x612&w=0&h=rT49nNEgQkFNbaGvyGx38c4RZ1YA1tjFbRV6tQFtgSE="); */
+}
+#checkout{
+    margin-left: 20px;
+    background-color: #ffd699;
+}
+
+form{
+    padding: 20px; 
+}
+input,select{
+    width: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: beige;
+    border-width: 2px;
+    border-style:solid;
+    border-color: black;
+
+}
+.isles{
+    padding: 20px;
+    background: #ffebcc;
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+    
+}
+
+#labels{
+  display: flex;
+   justify-content: center;
+}
+.label{
+    background-color: #f5f5da;
+    margin-top:10px;
+    margin-left:3px;
+    margin-bottom: -20px;
+    width:133px;
+    opacity: .8;
+    padding: 10px;
+    border-width: 2px;
+    font-size: large;
+    border-style:solid;
+    border-color:black;
+    opacity: .9;
+}
+
+ .cartLabel{
+    background-color: #f5f5da;
+    margin-top:10px;
+    margin-left:3px;
+    margin-bottom: -20px;
+    width:133px;
+    opacity: .8;
+    padding: 10px;
+    border-width: 3px;
+    font-size: large;
+    border-style:solid;
+    border-color:black;
+    opacity: .9;
+}
+.rows{
+    background-color: #f5f5da;
+    margin-top:10px;
+    margin-left:3px;
+    margin-bottom: -20px;
+    width:133px;
+    opacity: .8;
+    padding: 10px;
+    border-width: 3px;
+    font-size: large;
+    border-style:solid;
+    border-color:black;
+    opacity: .9;
+}
+
+#formWithSubmit{
+   display: flex;
+   /* flex-direction: column; */
+   justify-content: center;
+
+}
+
+#cart{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+}
+#adder{
+    width: 150px;
+    padding: 10px;
+    background:blanchedalmond;
+    border-width: 2px;
+    border-style:double;
+    border-color: black;
+}
+
+#bodyContainer{
+    display:none;
+}
+
+.header{
+    width: 100%;
+    height: 140px;
+    background-image: url('file:///Users/harveengrewal/Downloads/bannerstart.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 120px;
+    border-width: 10px;
+    border-style: groove;
+    border-color: #f5f5da;
+    opacity: .8;
+    text-anchor: middle;
+}
+
+
+
