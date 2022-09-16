@@ -11,13 +11,20 @@ let convenience = document.getElementById("convenience");
 convenience.addEventListener("click", conveniencer);
 
 let names = document.getElementById("names");
+names.addEventListener("mousedown", changingFunction);
 names.addEventListener("change", changingFunction);
-names.addEventListener("click", changingFunction);
+let edits= document.getElementById("edits");
+edits.addEventListener("mousedown", cartVisibility);
 let isle = document.getElementById("isle");
 let price = document.getElementById("price");
 let quantity =document.getElementById("quantity");
+
 let adder= document.getElementById("adder");
 adder.addEventListener("click", addItemToCart);
+
+let sendEdit=document.getElementById("sendEdit");
+sendEdit.addEventListener("click", removeItemFromCart);
+
 
 let cartName=document.getElementById("cartName");
 let cartIsle=document.getElementById("cartIsle");
@@ -25,10 +32,15 @@ let cartPrice=document.getElementById("cartPrice");
 let cartQuantity=document.getElementById("cartQuantity");
 
 let bodyVisisble = document.getElementById("bodyContainer");
+let cartEditHidden =document.getElementById("cartEditHidden");
+
+let editName=document.getElementById("editName");
+editName.addEventListener("mousedown", changingFunction2);
+editName.addEventListener("change", changingFunction2);
+let editQuantity=document.getElementById("editQuantity");
 
 
 function producer(){
-   console.log("passed");
     apiGetIsleItems("produce");
    
 }
@@ -46,11 +58,17 @@ function conveniencer(){
 }
 
 function addVisibility(x){
-   
-        bodyVisisble.style.display = "block";
-   
+        bodyVisisble.style.display = "block"; 
 }
+function cartVisibility(){
+    if (cartEditHidden.style.display === "none") {
+        cartEditHidden.style.display = "block";
+      } else {
+        cartEditHidden.style.display = "none";
+      }
+      apiGetCart2();
 
+}
 async function apiGetIsleItems(isle){
     let response = await fetch("http://localhost:9000/grocerystore/"+isle);
     response = await response.json();
@@ -59,6 +77,11 @@ async function apiGetIsleItems(isle){
 
 async function apiGetItem(theItem){
     let response = await fetch("http://localhost:9000/grocerystore/items/"+theItem);
+    response = await response.json();
+    return response;
+ }
+ async function apiGetCartItem(theItem){
+    let response = await fetch("http://localhost:9000/grocerystore/cart/items/"+theItem);
     response = await response.json();
     return response;
  }
@@ -91,7 +114,13 @@ async function changingFunction(x){
     quantity.setAttribute("max", (p.quantity));
 }
 
-
+async function changingFunction2(x){
+    var y=  x.target.value;
+    let p= await apiGetCartItem(y);
+    editQuantity.innerHTML="0";
+    console.log("max=" + p.quantity);
+    editQuantity.setAttribute("max", p.quantity);
+}
 
 async function addItemToCart(){
     let inputItem = {
@@ -110,14 +139,47 @@ async function addItemToCart(){
     });
     apiGetIsleItems(isle.value);
 }
-
+async function removeItemFromCart(){
+    let inputtedValue= await apiGetCartItem(editName.value); 
+    let inputItem = {
+        item_name: editName.value,
+        isle: inputtedValue.isle,
+        price: inputtedValue.price,
+        quantity: editQuantity.value
+    }
+    let response = await fetch("http://localhost:9000/grocerystore/cart/remove", {
+        method:'POST',
+        mode:'cors',
+        headers: {
+            'Content-Type': 'application/json'
+          },
+        body:JSON.stringify(inputItem)
+    });
+    apiGetCart();
+    cartVisibility();
+}
 async function apiGetCart(){
     console.log("button clicked");
     let response = await fetch("http://localhost:9000/grocerystore/cart");
     response = await response.json();
     loadCart(response);
 }
-
+async function apiGetCart2(){
+    console.log("button clicked");
+    let r = await fetch("http://localhost:9000/grocerystore/cart");
+    r = await r.json();
+    forEditCart(r);
+}
+async function forEditCart(r){
+    editName.innerHTML="";
+    editQuantity.innerHTML="0";
+    for(let i = 0; i < r.length; i++){
+        let nameIn=document.createElement("option");
+        nameIn.setAttribute("class", "label");
+        nameIn.innerHTML=r[i].item_name;
+        editName.appendChild(nameIn);
+    }
+}
 async function loadCart(response){
     cartName.innerHTML = "";
     cartPrice.innerHTML = "";
@@ -146,6 +208,5 @@ async function loadCart(response){
         cartQuantity.appendChild(addedItemQuantity);
 
     }
-    cart.appendChild(cartList);
 }
 
