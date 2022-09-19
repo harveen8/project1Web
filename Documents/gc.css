@@ -83,16 +83,21 @@
 }
 
 .header{
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 140px;
     background-image: url('file:///Users/harveengrewal/Downloads/bannerstart.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 120px;
     border-width: 20px;
     border-style: groove;
     border-color: #f5f5da;
     opacity: .8;
+}
+#gcTitle{
+    font-size: 120px;
+    text-align: center;
     text-anchor: middle;
 }
 
@@ -116,4 +121,14 @@ a{
     color: black;
     font-weight: 900;
 
+}
+#goAdmin{
+    padding: 5px;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+}
+#buttonRight{
+    display: flex;
+    justify-content: right;
 }

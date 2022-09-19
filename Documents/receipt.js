@@ -15,13 +15,11 @@ async function apiGetCartItem(theItem){
  }
 
  async function apiGetCart(){
-    console.log("button clicked");
     let response = await fetch("http://localhost:9000/grocerystore/cart");
     response = await response.json();
     loadCart(response);
 }
 async function emptyCart(){
-    console.log("button clicked");
     let response = await fetch("http://localhost:9000/grocerystore/cart/empty");
     response = await response.json();
 }

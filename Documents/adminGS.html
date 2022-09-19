@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grocery Store Admin</title>
+    <link rel="stylesheet"  href="adminGS.css"/>
+    <link rel="short icon" href="https://www.pngitem.com/pimgs/m/247-2472278_admin-admin-icon-png-transparent-png.png"/>
+</head> 
+<body>
+    <div id="entireBody">
+        <div id="upperButtons">
+            <button id="logout">Log out</button>
+            <button id="gc"> <a href="file:///Users/harveengrewal/Documents/grocerystore.html">Grocery Store</a></button>
+        </div>
+        <div class="LogInLabel" id="loop">Log In Admin</div>
+        <div class= "logandbelow"> 
+            <div id="logIn">
+                <form>
+                    <label  class="label" for="userName"> Username: </label><br>
+                    <input type="text" id="userName" required> <br>
+                    <label  class="label" for="passWord"> Password: </label><br>
+                    <input type="text" id="passWord" required> <br>
+                </form>
+                <button id="loginCheck">Log in</button>
+            </div>
+        </div>
+
+            <div id="editBody">
+                    <div class="LogInLabel">Add an Item into The Grocery Store</div>
+                    <div class= "logandbelow"> 
+                        <div id="addItemForm"> 
+                            <form > 
+                                <label  class="label" for="itemName"> Name: </label><br>
+                                <input class="inp" type="text" id="itemName"> <br>
+                                <label  class="label" for="isle"> Isle: </label><br>
+                                <input class="inp" type="text" id="isle"> <br>
+                                <label  class="label" for="price"> Price: </label><br>
+                                <input class="inp" type="number" id="price"> <br>
+                                <label  class="label" for="quantity"> Quantity: </label><br>
+                                <input class="inp" type="number" id="quantity"> <br>
+                            </form>
+                        <button id="addItem">Add Item</button>
+                        <div class="confirmation" id="confirmItem"></div>
+                        </div>
+                    </div>
+
+                    <div class="LogInLabel">Add an Admin</div>
+                    <div class= "logandbelow"> 
+                        <div id="addAdminForm">
+                            <form >
+                                <label  class="label" for="newUsername"> Username: </label><br>
+                                <input class="inp"type="text" id="newUsername"><br>
+                                <label  class="label" for="newPassword"> Password: </label><br>
+                                <input class="inp"type="text" id="newPassword"><br>
+                            </form>
+                            <button id="addAdmin">Add Admin</button>
+                            <div class="confirmation" id="confirmAdmin"></div>
+                        </div>
+                    </div>
+
+                    <div class="LogInLabel">Remove an Admin</div>
+                    <div class= "logandbelow"> 
+                        <div id="removeAdminForm">
+                                <form>
+                                    <label  class="label" for="removeUsername"> Username: </label><br>
+                                    <input class="inp" type="text" id="removeUsername"><br>
+                                </form>
+                        <button id="removeAdmin">Remove Admin</button>
+                        <div class="confirmation" id="confirmAdminRemoved"></div>
+                    </div>
+                    </div>
+    <div class="LogInLabel">All Admin Usernames</div>
+    <div class="logandbelow">
+        <div class="theUsers">
+        <div id="usernameTable" class="nope"> </div>
+    </div>
+    </div>
+</div>
+
+    <script src="adminGS.js"></script> 
+</body>
+</html>

@@ -33,6 +33,7 @@ let cartQuantity=document.getElementById("cartQuantity");
 
 let bodyVisisble = document.getElementById("bodyContainer");
 let cartEditHidden =document.getElementById("cartEditHidden");
+cartEditHidden.style.display="none";
 
 let editName=document.getElementById("editName");
 editName.addEventListener("mousedown", changingFunction2);
